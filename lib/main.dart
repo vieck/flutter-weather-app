@@ -11,7 +11,9 @@ class WeatherApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: WeatherPage(),
+      home: Scaffold(
+         body: new WeatherPage()
+      )
     );
   }
 }

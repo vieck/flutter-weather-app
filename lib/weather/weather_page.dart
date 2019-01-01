@@ -2,13 +2,13 @@ import 'package:flutter/widgets.dart';
 
 class WeatherPage extends StatefulWidget {
   @override
-  _State createState() => _State();
+  _WeatherPageState createState() => _WeatherPageState();
 }
 
-class _State extends State<WeatherPage> {
+class _WeatherPageState extends State<WeatherPage> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Text("Hello");
   }
 }
 
