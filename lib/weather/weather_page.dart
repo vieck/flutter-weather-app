@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class WeatherPage extends StatefulWidget {
@@ -8,7 +9,14 @@ class WeatherPage extends StatefulWidget {
 class _WeatherPageState extends State<WeatherPage> {
   @override
   Widget build(BuildContext context) {
-    return Text("Hello");
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Weather"),
+      ),
+      body: Center(
+        child: Text("Weather data"),
+      ),
+    );
   }
 }
 
