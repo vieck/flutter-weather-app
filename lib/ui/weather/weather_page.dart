@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:weather_app/data/models/weather_response.dart';
 
 class WeatherPage extends StatefulWidget {
   @override
@@ -7,6 +8,9 @@ class WeatherPage extends StatefulWidget {
 }
 
 class _WeatherPageState extends State<WeatherPage> {
+  WeatherResponse _weatherResponse;
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,6 +22,10 @@ class _WeatherPageState extends State<WeatherPage> {
       ),
     );
   }
+}
+
+void getWeatherData() {
+
 }
 
 

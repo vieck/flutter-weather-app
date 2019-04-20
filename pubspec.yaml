@@ -14,6 +14,7 @@ environment:
 
 dependencies:
   json_annotation: ^2.0.0
+  http: 0.12.0
   flutter:
     sdk: flutter
 
