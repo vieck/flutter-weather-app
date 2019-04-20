@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:weather_app/data/models/weather_response.dart';
+import 'package:weather_app/data/repositories/WeatherRepository.dart';
 
 class WeatherPage extends StatefulWidget {
   @override
@@ -8,8 +9,7 @@ class WeatherPage extends StatefulWidget {
 }
 
 class _WeatherPageState extends State<WeatherPage> {
-  WeatherResponse _weatherResponse;
-
+  var _weatherResponse = getWeatherData();
 
   @override
   Widget build(BuildContext context) {
@@ -18,14 +18,24 @@ class _WeatherPageState extends State<WeatherPage> {
         title: Text("Weather"),
       ),
       body: Center(
-        child: Text("Weather data"),
+        child: FutureBuilder(
+          future: _weatherResponse,
+          builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                return Text(snapshot.data.city.name);
+              } else {
+                return Text("${snapshot.error}");
+              }
+          },
+        ),
       ),
     );
   }
 }
 
-void getWeatherData() {
-
+Future<WeatherResponse> getWeatherData() {
+  var repository = new WeatherRepository();
+  return repository.getCurrentWeather();
 }
 
 
