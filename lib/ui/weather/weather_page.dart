@@ -22,7 +22,7 @@ class _WeatherPageState extends State<WeatherPage> {
           future: _weatherResponse,
           builder: (context, snapshot) {
               if (snapshot.hasData) {
-                return Text(snapshot.data.city.name);
+                return Text(snapshot.data.toString());
               } else {
                 return Text("${snapshot.error}");
               }
