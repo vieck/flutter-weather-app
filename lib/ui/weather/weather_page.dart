@@ -18,11 +18,11 @@ class _WeatherPageState extends State<WeatherPage> {
         title: Text("Weather"),
       ),
       body: Center(
-        child: FutureBuilder(
+        child: FutureBuilder<WeatherResponse>(
           future: _weatherResponse,
           builder: (context, snapshot) {
               if (snapshot.hasData) {
-                return Text(snapshot.data.toString());
+                return Text(snapshot.data.city.toString());
               } else {
                 return Text("${snapshot.error}");
               }
