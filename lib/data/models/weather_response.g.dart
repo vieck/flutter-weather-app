@@ -8,15 +8,25 @@ part of 'weather_response.dart';
 
 WeatherResponse _$WeatherResponseFromJson(Map<String, dynamic> json) {
   return WeatherResponse(
-      json['city'] == null
+      json['id'] as int,
+      json['name'] as String,
+      json['weather'] == null
           ? null
-          : City.fromJson(json['city'] as Map<String, dynamic>),
-      (json['list'] as List)
-          ?.map((e) => e == null
-              ? null
-              : ForecastData.fromJson(e as Map<String, dynamic>))
-          ?.toList());
+          : Weather.fromJson(json['weather'] as Map<String, dynamic>),
+      (json['main'] as List)
+          ?.map((e) =>
+              e == null ? null : Main.fromJson(e as Map<String, dynamic>))
+          ?.toList(),
+      json['wind'] == null
+          ? null
+          : Wind.fromJson(json['wind'] as Map<String, dynamic>));
 }
 
 Map<String, dynamic> _$WeatherResponseToJson(WeatherResponse instance) =>
-    <String, dynamic>{'city': instance.city, 'list': instance.forecast};
+    <String, dynamic>{
+      'id': instance.cityId,
+      'name': instance.cityName,
+      'weather': instance.weather,
+      'main': instance.main,
+      'wind': instance.wind
+    };
