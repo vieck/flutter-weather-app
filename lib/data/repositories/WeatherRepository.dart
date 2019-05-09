@@ -7,7 +7,7 @@ import 'package:weather_app/data/SecretLoader.dart';
 import 'package:weather_app/data/models/weather_response.dart';
 
 class WeatherRepository {
-  String baseUrl = "https://samples.openweathermap.org/data/2.5/";
+  String baseUrl = "https://api.openweathermap.org/data/2.5/";
 
   Future<WeatherResponse> getCurrentWeather() async {
     var client = new http.Client();
@@ -15,7 +15,7 @@ class WeatherRepository {
         SecretLoader(secretPath: "secrets.json").load();
     return secretLoader.then((secret) async {
       final response = await client.get(
-          baseUrl + "weather?q=Indianapolis&appid=" + secret.weatherApiKey);
+          baseUrl + "weather?q=Indianapolis&units=imperial&appid=" + secret.weatherApiKey);
       if (response.statusCode == 200) {
         print("Weather " + response.body);
         return WeatherResponse.fromJson(json.decode(response.body));

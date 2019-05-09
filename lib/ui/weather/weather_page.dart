@@ -14,22 +14,61 @@ class _WeatherPageState extends State<WeatherPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Weather"),
-      ),
-      body: Center(
-        child: FutureBuilder<WeatherResponse>(
-          future: _weatherResponse,
-          builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                return Text(snapshot.data.cityName);
-              } else {
-                return Text("${snapshot.error}");
-              }
-          },
+        appBar: AppBar(
+          title: Text("Weather"),
         ),
-      ),
-    );
+        body: Container(
+          child: Center(
+            child: Column(
+              children: <Widget>[
+                Container(
+                  margin: const EdgeInsets.only(top: 40.0),
+                  child: FutureBuilder<WeatherResponse>(
+                    future: _weatherResponse,
+                    builder: (context, snapshot) {
+                      if (snapshot.hasData) {
+                        return Text(snapshot.data.cityName, style: TextStyle(fontSize: 34),);
+                      } else {
+                        return Text("${snapshot.error}");
+                      }
+                    },
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.only(top: 40.0),
+                  child: FutureBuilder<WeatherResponse>(
+                    future: _weatherResponse,
+                    builder: (context, snapshot) {
+                      if (snapshot.hasData) {
+                        return Text(
+                          snapshot.data.main.temperature.round().toString() + "°",
+                          style: TextStyle(fontSize: 48),
+                        );
+                      } else {
+                        return Text("${snapshot.error}");
+                      }
+                    },
+                  ),
+                ),
+                Container(
+                  child: FutureBuilder<WeatherResponse>(
+                    future: _weatherResponse,
+                    builder: (context, snapshot) {
+                      if (snapshot.hasData) {
+                        return Text(
+                          snapshot.data.weather.single.name,
+                          style: TextStyle(fontSize: 32),
+                        );
+                      } else {
+                        return Text("${snapshot.error}");
+                      }
+                    },
+                  ),
+                )
+              ],
+            ),
+          ),
+        ));
   }
 }
 
@@ -37,5 +76,3 @@ Future<WeatherResponse> getWeatherData() {
   var repository = new WeatherRepository();
   return repository.getCurrentWeather();
 }
-
-
