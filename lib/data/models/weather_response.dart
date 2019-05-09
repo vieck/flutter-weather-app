@@ -14,10 +14,10 @@ class WeatherResponse {
   @JsonKey(name: 'name')
   final String cityName;
 
-  final Weather weather;
+  final List<Weather> weather;
 
   @JsonKey(name: 'main')
-  final List<Main> main;
+  final Main main;
 
   final Wind wind;
 

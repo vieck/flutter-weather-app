@@ -10,13 +10,13 @@ WeatherResponse _$WeatherResponseFromJson(Map<String, dynamic> json) {
   return WeatherResponse(
       json['id'] as int,
       json['name'] as String,
-      json['weather'] == null
-          ? null
-          : Weather.fromJson(json['weather'] as Map<String, dynamic>),
-      (json['main'] as List)
+      (json['weather'] as List)
           ?.map((e) =>
-              e == null ? null : Main.fromJson(e as Map<String, dynamic>))
+              e == null ? null : Weather.fromJson(e as Map<String, dynamic>))
           ?.toList(),
+      json['main'] == null
+          ? null
+          : Main.fromJson(json['main'] as Map<String, dynamic>),
       json['wind'] == null
           ? null
           : Wind.fromJson(json['wind'] as Map<String, dynamic>));
