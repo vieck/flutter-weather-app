@@ -3,6 +3,8 @@ import 'package:flutter/widgets.dart';
 import 'package:weather_app/data/models/weather_response.dart';
 import 'package:weather_app/data/repositories/WeatherRepository.dart';
 
+import 'WeatherForecast.dart';
+
 class WeatherPage extends StatefulWidget {
   @override
   _WeatherPageState createState() => _WeatherPageState();
@@ -65,7 +67,8 @@ class _WeatherPageState extends State<WeatherPage> {
                       }
                     },
                   ),
-                )
+                ),
+                new WeatherForecast()
               ],
             ),
           ),
