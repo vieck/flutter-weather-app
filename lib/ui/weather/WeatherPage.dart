@@ -30,7 +30,10 @@ class _WeatherPageState extends State<WeatherPage> {
                     future: _weatherResponse,
                     builder: (context, snapshot) {
                       if (snapshot.hasData) {
-                        return Text(snapshot.data.cityName, style: TextStyle(fontSize: 34),);
+                        return Text(
+                          snapshot.data.cityName,
+                          style: TextStyle(fontSize: 34),
+                        );
                       } else {
                         return Text("${snapshot.error}");
                       }
@@ -44,7 +47,8 @@ class _WeatherPageState extends State<WeatherPage> {
                     builder: (context, snapshot) {
                       if (snapshot.hasData) {
                         return Text(
-                          snapshot.data.main.temperature.round().toString() + "°",
+                          snapshot.data.main.temperature.round().toString() +
+                              "°",
                           style: TextStyle(fontSize: 48),
                         );
                       } else {
@@ -68,7 +72,7 @@ class _WeatherPageState extends State<WeatherPage> {
                     },
                   ),
                 ),
-                new WeatherForecast()
+                Container(child: new WeatherForecast())
               ],
             ),
           ),
