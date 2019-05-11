@@ -9,17 +9,21 @@ class WeatherForecast extends StatefulWidget {
 class WeatherForecastState extends State<WeatherForecast> {
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView(children: _getListData(), scrollDirection: Axis.horizontal),
+    return Align(
+      alignment: Alignment.center,
+      child: ListView(children: _getListData(), scrollDirection: Axis.horizontal, shrinkWrap: true),
     );
   }
 
   _getListData() {
     List forecastWidgets = <Widget>[];
     for (int i = 0; i < 5; i++) {
-      forecastWidgets.add(Padding(
-          padding: EdgeInsets.all(10.0),
-          child: const Center(child: Text("Blue"))));
+      forecastWidgets.add(Column(
+        children: <Widget>[
+          Center(child: Text("Day " + i.toString())),
+          Image(image: NetworkImage("http://chittagongit.com/images/weather-sun-icon/weather-sun-icon-4.jpg"), width: 25.0, height: 25.0),
+          const Center(child: Text("55°"))
+        ]));
     }
     return forecastWidgets;
   }

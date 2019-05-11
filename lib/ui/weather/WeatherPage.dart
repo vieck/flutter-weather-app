@@ -72,7 +72,7 @@ class _WeatherPageState extends State<WeatherPage> {
                     },
                   ),
                 ),
-                Container(child: new WeatherForecast())
+                Expanded(child: new WeatherForecast())
               ],
             ),
           ),
