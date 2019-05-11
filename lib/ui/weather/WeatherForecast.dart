@@ -9,13 +9,16 @@ class WeatherForecast extends StatefulWidget {
 class WeatherForecastState extends State<WeatherForecast> {
   @override
   Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.center,
-      child: ListView(children: _getListData(), scrollDirection: Axis.horizontal, shrinkWrap: true),
+    return Container(
+      child: Row(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: _getForecastWidgets()
+      )
     );
   }
 
-  _getListData() {
+  _getForecastWidgets() {
     List forecastWidgets = <Widget>[];
     for (int i = 0; i < 5; i++) {
       forecastWidgets.add(Column(
