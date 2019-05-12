@@ -14,6 +14,7 @@ class WeatherForecastState extends State<WeatherForecast> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      alignment: Alignment.bottomCenter,
       child: FutureBuilder(
         future: _forecastResponse,
         builder: (context, snapshot) {
@@ -37,6 +38,7 @@ class WeatherForecastState extends State<WeatherForecast> {
     for (int i = 0; i < 5; i++) {
       Forecast forecast = forecastResponse.forecast[i];
       forecastWidgets.add(Column(
+        mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           Center(child: Text("Day " + i.toString())),
           Image(image: NetworkImage("http://chittagongit.com/images/weather-sun-icon/weather-sun-icon-4.jpg"), width: 25.0, height: 25.0),
