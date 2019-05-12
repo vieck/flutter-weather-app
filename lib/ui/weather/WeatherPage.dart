@@ -20,7 +20,6 @@ class _WeatherPageState extends State<WeatherPage> {
           title: Text("Weather"),
         ),
         body: Container(
-          padding: EdgeInsets.all(12.0),
           child: Center(
             child: Column(
               mainAxisSize: MainAxisSize.max,
