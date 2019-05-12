@@ -20,7 +20,7 @@ class WeatherForecastState extends State<WeatherForecast> {
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               return Container(
-                margin: EdgeInsets.only(bottom: 12.0),
+                  margin: EdgeInsets.only(bottom: 12.0),
                   child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,

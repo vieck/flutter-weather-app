@@ -20,6 +20,15 @@ class _WeatherPageState extends State<WeatherPage> {
           title: Text("Weather"),
         ),
         body: Container(
+          //TODO: change gradient depending on time of day
+          decoration: BoxDecoration(
+              gradient: LinearGradient(colors: [
+            Colors.deepPurple[900],
+            Colors.deepPurple[800],
+            Colors.indigo[800],
+            Colors.indigo[700],
+            Colors.indigo[600]
+          ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
           child: Center(
             child: Column(
               mainAxisSize: MainAxisSize.max,

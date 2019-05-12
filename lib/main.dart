@@ -10,6 +10,9 @@ class WeatherApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        textTheme: Theme.of(context).textTheme.apply(
+          bodyColor: Colors.white
+        ),
       ),
       home: Scaffold(
          body: new WeatherPage()
