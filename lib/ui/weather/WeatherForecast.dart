@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:weather_app/data/models/forecast/ForecastResponse.dart';
+import 'package:weather_app/data/repositories/WeatherRepository.dart';
 
 class WeatherForecast extends StatefulWidget {
   @override
@@ -31,3 +33,9 @@ class WeatherForecastState extends State<WeatherForecast> {
     return forecastWidgets;
   }
 }
+
+Future<ForecastResponse> getWeatherData() {
+  var repository = new WeatherRepository();
+  return repository.getForecast('Indianapolis');
+}
+

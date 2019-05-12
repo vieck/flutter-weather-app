@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:weather_app/data/models/weather_response.dart';
+import 'package:weather_app/data/models/weather/WeatherResponse.dart';
 import 'package:weather_app/data/repositories/WeatherRepository.dart';
 
 import 'WeatherForecast.dart';
@@ -20,7 +20,6 @@ class _WeatherPageState extends State<WeatherPage> {
           title: Text("Weather"),
         ),
         body: Container(
-          //TODO: Add horizontal list of 5 day forecast below this column
           child: Center(
             child: Column(
               children: <Widget>[
@@ -82,5 +81,5 @@ class _WeatherPageState extends State<WeatherPage> {
 
 Future<WeatherResponse> getWeatherData() {
   var repository = new WeatherRepository();
-  return repository.getCurrentWeather();
+  return repository.getCurrentWeather('Indianapolis');
 }

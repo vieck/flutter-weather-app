@@ -1,9 +1,9 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:weather_app/data/models/main.dart';
-import 'package:weather_app/data/models/weather.dart';
+import 'package:weather_app/data/models/weather/Weather.dart';
 import 'package:weather_app/data/models/wind.dart';
 
-part 'weather_response.g.dart';
+part 'WeatherResponse.g.dart';
 
 @JsonSerializable()
 class WeatherResponse {
