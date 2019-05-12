@@ -62,7 +62,7 @@ class _WeatherPageState extends State<WeatherPage> {
                     builder: (context, snapshot) {
                       if (snapshot.hasData) {
                         return Text(
-                          snapshot.data.weather.single.name,
+                          snapshot.data.weather[0].name,
                           style: TextStyle(fontSize: 32),
                         );
                       } else {

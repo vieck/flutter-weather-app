@@ -1,20 +1,17 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:weather_app/data/models/weather/Weather.dart';
+
+
+import 'Forecast.dart';
 
 part 'ForecastResponse.g.dart';
 
 @JsonSerializable()
 class ForecastResponse {
 
-    @JsonKey(name: 'id')
-    final int cityId;
+    @JsonKey(name: 'list')
+    final List<Forecast> forecast;
 
-    @JsonKey(name: 'name')
-    final String cityName;
-
-    final List<Weather> weather;
-
-    ForecastResponse(this.cityId, this.cityName, this.weather);
+    ForecastResponse(this.forecast);
 
     factory ForecastResponse.fromJson(Map<String, dynamic> json) => _$ForecastResponseFromJson(json);
 

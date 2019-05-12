@@ -16,7 +16,7 @@ class WeatherRepository {
         SecretLoader(secretPath: "secrets.json").load();
     return secretLoader.then((secret) async {
       final response = await client.get(baseUrl +
-          "weather?q=$location&units=imperial&appid=" +
+          "weather?q=" +location +"&units=imperial&appid=" +
           secret.weatherApiKey);
       if (response.statusCode == 200) {
         print("Weather " + response.body);
@@ -33,7 +33,7 @@ class WeatherRepository {
         SecretLoader(secretPath: "secrets.json").load();
     return secretLoader.then((secret) async {
       final response = await client.get(baseUrl +
-          "forecast?q=$location&cnt=5&units=imperial&appid=" +
+          "forecast?q=" + location + "&cnt=5&units=imperial&appid=" +
           secret.weatherApiKey);
       if (response.statusCode == 200) {
         print("Forecast " + response.body);

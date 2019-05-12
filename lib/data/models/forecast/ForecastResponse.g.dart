@@ -7,18 +7,11 @@ part of 'ForecastResponse.dart';
 // **************************************************************************
 
 ForecastResponse _$ForecastResponseFromJson(Map<String, dynamic> json) {
-  return ForecastResponse(
-      json['id'] as int,
-      json['name'] as String,
-      (json['weather'] as List)
-          ?.map((e) =>
-              e == null ? null : Weather.fromJson(e as Map<String, dynamic>))
-          ?.toList());
+  return ForecastResponse((json['list'] as List)
+      ?.map((e) =>
+          e == null ? null : Forecast.fromJson(e as Map<String, dynamic>))
+      ?.toList());
 }
 
 Map<String, dynamic> _$ForecastResponseToJson(ForecastResponse instance) =>
-    <String, dynamic>{
-      'id': instance.cityId,
-      'name': instance.cityName,
-      'weather': instance.weather
-    };
+    <String, dynamic>{'list': instance.forecast};

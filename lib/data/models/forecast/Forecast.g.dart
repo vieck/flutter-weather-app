@@ -11,9 +11,10 @@ Forecast _$ForecastFromJson(Map<String, dynamic> json) {
       json['main'] == null
           ? null
           : Main.fromJson(json['main'] as Map<String, dynamic>),
-      json['weather'] == null
-          ? null
-          : Weather.fromJson(json['weather'] as Map<String, dynamic>));
+      (json['weather'] as List)
+          ?.map((e) =>
+              e == null ? null : Weather.fromJson(e as Map<String, dynamic>))
+          ?.toList());
 }
 
 Map<String, dynamic> _$ForecastToJson(Forecast instance) =>

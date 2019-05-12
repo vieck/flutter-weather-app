@@ -12,7 +12,7 @@ class Forecast {
     final Main main;
 
     @JsonKey(name: 'weather')
-    final Weather weather;
+    final List<Weather> weather;
 
     Forecast(this.main, this.weather);
 
