@@ -24,7 +24,7 @@ class WeatherForecastState extends State<WeatherForecast> {
                 children: _getForecastWidgets(snapshot.data)
             );
           } else {
-            return const Text("Missing forecast");
+            return const Text("Unable to load forecast data");
           }
         },
       )
